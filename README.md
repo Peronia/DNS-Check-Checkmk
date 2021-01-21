@@ -1,4 +1,4 @@
-# DNS-Check-Checkmk
+# DYNDNS-Check-Checkmk
 All checks use the bash and the defaultpath for the checks is /usr
 Don't forget to make them executable.
 
