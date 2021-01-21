@@ -1,0 +1,11 @@
+#!/bin/bash
+
+ip_current=$(curl -s https://v4.ident.me)
+ip_dns=$(host DYNDNSDOMAIN | awk '/has address/ { print $4 ; exit }')
+
+if [ $ip_current == $ip_dns ]
+then
+        echo "0 check_dyndns - IP from dyndns ($ip_dns) equals actual IP ($ip_current)"
+else
+        echo "2 check_dyndns - IP from dyndns ($ip_dns) not equals actual IP ($ip_current)"
+fi
