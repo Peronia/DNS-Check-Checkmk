@@ -1,0 +1,11 @@
+#!/bin/bash
+
+ip_current_website=$(host DOMAINTOCHECK | awk '/has address/ { print $4 ; exit }')
+ip_dns=$(host DYNDNSDOMAIN | awk '/has address/ { print $4 ; exit }')
+
+if [ "$ip_current_website" == "$ip_dns" ]
+then
+        echo "0 check_dyndns_NAMEOFWEBSITE - IP from dyndns ($ip_dns) equals actual IP from NAMEOFWEBSITE ($ip_current_website)"
+else
+        echo "2 check_dyndns_NAMEOFWEBSITE - IP from dyndns ($ip_dns) not equals actual IP from NAMEOFWEBSITE ($ip_current_website)"
+fi
